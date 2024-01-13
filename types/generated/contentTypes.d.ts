@@ -386,12 +386,6 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    seo: Attribute.Component<'shared.seo'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     content: Attribute.DynamicZone<['page-comp.reports']> &
       Attribute.SetPluginOptions<{
         i18n: {
