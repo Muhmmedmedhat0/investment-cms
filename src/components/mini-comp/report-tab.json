@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_mini_comp_report_tabs",
+  "info": {
+    "displayName": "reportTab",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "tabTitle": {
+      "type": "string",
+      "required": true
+    },
+    "reportFiles": {
+      "displayName": "reportFiles",
+      "type": "component",
+      "repeatable": true,
+      "component": "mini-comp.report-files"
+    },
+    "questions": {
+      "displayName": "questions",
+      "type": "component",
+      "repeatable": true,
+      "component": "mini-comp.questions"
+    }
+  }
+}

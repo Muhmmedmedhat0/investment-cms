@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_mini_comp_questions",
+  "info": {
+    "displayName": "questions",
+    "icon": "question"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "text"
+    }
+  }
+}
