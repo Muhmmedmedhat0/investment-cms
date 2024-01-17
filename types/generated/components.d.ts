@@ -1,25 +1,13 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface MiniCompQuestions extends Schema.Component {
-  collectionName: 'components_mini_comp_questions';
-  info: {
-    displayName: 'questions';
-    icon: 'question';
-  };
-  attributes: {
-    question: Attribute.String;
-    answer: Attribute.Text;
-  };
-}
-
-export interface MiniCompReportFiles extends Schema.Component {
+export interface MiniCompReportFile extends Schema.Component {
   collectionName: 'components_mini_comp_report_files';
   info: {
-    displayName: 'reportFiles';
+    displayName: 'ReportFile';
     icon: 'filePdf';
   };
   attributes: {
-    description: Attribute.String & Attribute.Required;
+    FileName: Attribute.String & Attribute.Required;
     asset: Attribute.Media & Attribute.Required;
   };
 }
@@ -27,29 +15,30 @@ export interface MiniCompReportFiles extends Schema.Component {
 export interface MiniCompReportTab extends Schema.Component {
   collectionName: 'components_mini_comp_report_tabs';
   info: {
-    displayName: 'reportTab';
+    displayName: 'ReportTab';
     icon: 'calendar';
   };
   attributes: {
-    tabTitle: Attribute.String & Attribute.Required;
-    reportFiles: Attribute.Component<'mini-comp.report-files', true>;
-    questions: Attribute.Component<'mini-comp.questions', true>;
+    TabTitle: Attribute.String & Attribute.Required;
+    ReportFile: Attribute.Component<'mini-comp.report-file', true> &
+      Attribute.SetMinMax<{
+        min: 1;
+      }>;
   };
 }
 
 export interface PageCompReports extends Schema.Component {
   collectionName: 'components_page_comp_reports';
   info: {
-    displayName: 'reports';
+    displayName: 'Reports';
     icon: 'folder';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    image: Attribute.Media & Attribute.Required;
-    reportTab: Attribute.Component<'mini-comp.report-tab', true> &
+    ReportTab: Attribute.Component<'mini-comp.report-tab', true> &
+      Attribute.Required &
       Attribute.SetMinMax<{
-        min: 3;
-        max: 3;
+        min: 2;
+        max: 2;
       }>;
   };
 }
@@ -89,8 +78,7 @@ export interface SharedSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'mini-comp.questions': MiniCompQuestions;
-      'mini-comp.report-files': MiniCompReportFiles;
+      'mini-comp.report-file': MiniCompReportFile;
       'mini-comp.report-tab': MiniCompReportTab;
       'page-comp.reports': PageCompReports;
       'shared.meta-social': SharedMetaSocial;
