@@ -368,7 +368,6 @@ export interface ApiPagePage extends Schema.CollectionType {
     singularName: 'page';
     pluralName: 'pages';
     displayName: 'Page';
-    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -379,20 +378,21 @@ export interface ApiPagePage extends Schema.CollectionType {
     };
   };
   attributes: {
-    title: Attribute.String &
+    PageName: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    content: Attribute.DynamicZone<['page-comp.reports']> &
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    seo: Attribute.Component<'shared.seo'> &
+    Reports: Attribute.Component<'page-comp.reports'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
