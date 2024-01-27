@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_meta_socials",
   "info": {
-    "displayName": "metaSocial"
+    "displayName": "metaSocial",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,21 +12,24 @@
         "facebook",
         "twitter",
         "linkedin"
-      ]
+      ],
+      "required": true
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
